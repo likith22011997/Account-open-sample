@@ -1,0 +1,93 @@
+<button class="btn btn-primary" type="button" (click)="createNewAcc()">
+  CREATE NEW SAVINGS ACCOUNT
+</button>
+<hr />
+<form (ngSubmit)="newAccCreated(f.value.username)" #f="ngForm">
+  <div class="container-fluid" *ngIf="edited === true">
+    <div class="row">
+      <div class="text-danger col-xs-12" type="text">
+        Enter all the fields to create account
+      </div>
+    </div>
+    <br />
+    <div class="row">
+      <div class="col-xs-4">
+        <label for="name">FULL NAME</label>
+        <input
+          type="text"
+          id="name"
+          class="form-control"
+          ngModel
+          name="username"
+          required>
+      </div>
+      <div class="col-xs-2">
+        <label for="age">AGE</label>
+        <input type="number" id="amount" class="form-control" #ageInput />
+      </div>
+      <div class="col-xs-6">
+        <label>GENDER</label>
+      </div>
+      <div class="radio" *ngFor="let gender of genders">
+        <label>
+          <input type="radio" name="gender" ngModel [value]="gender" required>
+          {{ gender }}
+        </label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">
+        <label for="Fname">FATHER NAME</label>
+        <input type="text" id="name" class="form-control" #FNAMEInput />
+      </div>
+      <div class="col-xs-3">
+        <label for="Mname">MOTHER NAME</label>
+        <input type="text" id="name" class="form-control" #MNAMEInput />
+      </div>
+    </div>
+    <br />
+    <div class="row">
+      <div class="col-xs-6">
+        <label for="address">ADDRESS</label>
+        <input type="text" id="name" class="form-control" #ADDRESSInput />
+      </div>
+    </div>
+    <br />
+    <div class="row">
+      <div class="col-xs-4">
+        <label for="job"> OCCUPATION</label>
+        <input type="text" id="name" class="form-control" #JOBInput />
+      </div>
+      <div class="col-xs-2">
+        <label for="income">INCOME per annum</label>
+        <input type="number" id="amount" class="form-control" #INCOMEInput />
+      </div>
+    </div>
+    <br />
+    <div>
+      <!-- <form (ngSubmit)="newAccCreated(f)" #f="ngForm"> -->
+        <button class="btn btn-success" type="submit" (click)="newAccCreated()">
+          SUBMIT
+        </button>
+      <!-- </form> -->
+      <br />
+      <label>{{ accCreation }}</label>
+    </div>
+  </div>
+</form>
+
+<!-- <form (ngSubmit)="onSubmit()" #f="ngForm"> -->
+<div class="row" *ngIf="submitted">
+  <div class="col-xs-4">
+  <h3><label>DETAILS OF NEW SAVINGS ACCOUNT :--</label></h3>
+  <hr />
+  <p>NAME : {{ user.name }}</p>
+  <p>GENDER :</p>
+  <p>AGE :</p>
+  <p>FATHER NAME :</p>
+  <p>MOTHER NAME :</p>
+  <p>ADDRESS :</p>
+  <p>OCCUPATION :</p>
+  <p>INCOME per annum :</p>
+<!-- </div> -->
+<!-- </form> -->
