@@ -19,35 +19,44 @@ export class CreatenewaccountComponent implements OnInit {
   accCreation = '';
   edited = false;
   genders = ['male', 'female'];
+  // user = {
+  //   name: '',
+  //   gender: '',
+  //   age: '',
+  //   fathername: '',
+  //   mothername: '',
+  //   address: '',
+  //   occupation: '',
+  //   income: '',
+  // };
   user = {
     name: '',
-    age: '',
-    fname: '',
-    mname: '',
-    useraddress: '',
-    work: '',
-    income: '',
   };
 
   submitted = false;
-  // constructor() {}
+
+  constructor() {}
   ngOnInit() {}
 
   createNewAcc() {
     this.edited = !this.edited;
-    // console.log('newacc');
+    console.log('newacc');
   }
-
-  newAccCreated(form: NgForm) {
+  // newAccCreated(form: NgForm) {
+  //   this.accCreated = true;
+  //   this.accCreation = 'ACCOUNT CREATED SUCCESSFULLY';
+  //   console.log('submitted');
+  //   // this.displayAccDetails = true;
+  //   // this.name = this.signUpForm.value.userData.name;
+  //   this.submitted = true;
+  //   this.user.name = this.signupForm.value.username;
+  //   console.log('submitted');
+  // }
+  newAccCreated(name) {
     this.submitted = true;
-    console.log(this.signupForm);
+    // console.log(this.signupForm);
+    console.log(name);
     this.user.name = this.signupForm.value.username;
-    this.user.age = this.signupForm.value.age;
-    this.user.fname = this.signupForm.value.fathername;
-    this.user.mname = this.signupForm.value.mothername;
-    this.user.useraddress = this.signupForm.value.address;
-    this.user.work = this.signupForm.value.occupation;
-    this.user.income = this.signupForm.value.inc;
     this.accCreation = 'ACCOUNT CREATED SUCCESSFULLY';
     // console.log('submitted');
   }
